@@ -1,1 +1,0 @@
-com.mfizz:mfz-maven-parent:pom:1.1
