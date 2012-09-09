@@ -297,22 +297,22 @@
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="package ${package.name};&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="public final class Version {&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String COMMIT=&quot;${buildNumber}&quot;;&#13;&#10;" />
-                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String TIMESTAMP=&quot;${timestamp}&quot;;&#13;&#10;" />
+                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String TIMESTAMP=&quot;${build.timestamp}&quot;;&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String VERSION=&quot;${build.version}&quot;;&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String NAME=&quot;${build.name}&quot;;&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String VENDOR=&quot;${build.vendor}&quot;;&#13;&#10;" />
-                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String LONG_VERSION=&quot;${build.version} (commit ${buildNumber} @ ${timestamp})&quot;;&#13;&#10;" />
+                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    private static final String LONG_VERSION=&quot;${build.version} (commit ${buildNumber} @ ${build.timestamp})&quot;;&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library source control commit tag such as &quot;${buildNumber}&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getCommit() { return COMMIT; }&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library vendor such as &quot;${build.vendor}&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getVendor() { return VENDOR; }&#13;&#10;" />
-                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library build timestamp (date) such as &quot;${timestamp}&quot; */&#13;&#10;" />
+                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library build timestamp (date) such as &quot;${build.timestamp}&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getTimestamp() { return TIMESTAMP; }&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library name such as &quot;${build.name}&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getName() { return NAME; }&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns the library version such as &quot;${build.version}&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getVersion() { return VERSION; }&#13;&#10;" />
-                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns a longer library version that includes the timestamp such as &quot;${build.version} (commit ${buildNumber}; build-date ${timestamp})&quot; */&#13;&#10;" />
+                                        <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    /** Returns a longer library version that includes the timestamp such as &quot;${build.version} (commit ${buildNumber}; ts ${build.timestamp})&quot; */&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="    static public String getLongVersion() { return LONG_VERSION; }&#13;&#10;" />
                                         <echo file="${src.dir}/${package.dir}/Version.java" append="true" message="}${line.separator}" />
                                     </else>
