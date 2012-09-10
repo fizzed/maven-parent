@@ -1,11 +1,10 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mfizz</groupId>
     <artifactId>mfz-maven-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.4</version>
+    <version>1.5</version>
     <name>mfz-maven-parent</name>
     <description>Parent pom for all mfizz projects</description>
     <url>http://code.google.com/p/mfz-maven-parent/</url>
@@ -37,6 +36,19 @@
     <developers>
         <!-- empty in parent pom -->
     </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Sonatype OSS Release Staging Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -221,27 +233,6 @@
                     <goals>
                     <goal>manifest</goal>
                     </goals>
-                </execution>
-                </executions>
-            </plugin>
-            -->
-
-            <!-- generate Dependency.txt so it can be committed to source control  -->
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.5</version>
-                <executions>
-                <execution>
-                    <id>list-dependencies</id>
-                    <phase>compile</phase>
-                    <goals>
-                    <goal>tree</goal>
-                    </goals>
-                    <configuration>
-                    <outputFile>Dependency.txt</outputFile>
-                    </configuration>
                 </execution>
                 </executions>
             </plugin>
