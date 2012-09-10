@@ -34,7 +34,9 @@
     </scm>
     
     <developers>
-        <!-- empty in parent pom -->
+        <developer>
+            <email>joe@mfizz.com</email>
+        </developer>
     </developers>
 
     <distributionManagement>
