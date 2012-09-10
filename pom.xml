@@ -4,7 +4,7 @@
     <groupId>com.mfizz</groupId>
     <artifactId>mfz-maven-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.5</version>
+    <version>1.5-SNAPSHOT</version>
     <name>mfz-maven-parent</name>
     <description>Parent pom for all mfizz projects</description>
     <url>http://code.google.com/p/mfz-maven-parent/</url>
