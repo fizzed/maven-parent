@@ -35,7 +35,7 @@
     
     <developers>
         <developer>
-            <email>joe@mfizz.com</email>
+            <email>oss@mfizz.com</email>
         </developer>
     </developers>
 
@@ -99,6 +99,7 @@
                     <verbose>false</verbose>
                     <addSvnKeyWords>false</addSvnKeyWords>
                     <licenseName>apache_v2</licenseName>
+                    <skipUpdateLicense>${license.skip}</skipUpdateLicense>
                     <excludes>
                         <exclude>**/Version.java</exclude>
                     </excludes>
@@ -125,7 +126,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
+                <version>2.3.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
