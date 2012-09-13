@@ -148,7 +148,7 @@
                 <version>2.4</version>
                 <configuration>
                     <archive>
-                        <manifestFile>${commons.manifestfile}</manifestFile>
+                        <!--<manifestFile>${commons.manifestfile}</manifestFile>-->
                         <manifestEntries>
                             <Built-By />
                             <Specification-Title>${project.name}</Specification-Title>
