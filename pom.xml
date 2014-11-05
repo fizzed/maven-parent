@@ -4,7 +4,7 @@
     <groupId>co.fizzed</groupId>
     <artifactId>fizzed-maven-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
     <name>fizzed-maven-parent</name>
     <description>Parent pom for all Fizzed Maven projects</description>
     <url>http://code.google.com/p/mfz-maven-parent/</url>
@@ -31,7 +31,7 @@
     <scm>
         <url>http://code.google.com/p/mfz-maven-parent/source/browse/</url>
         <connection>scm:git:https://code.google.com/p/mfz-maven-parent/</connection>
-      <tag>version-1.8</tag>
+      <tag>HEAD</tag>
   </scm>
     
     <developers>
