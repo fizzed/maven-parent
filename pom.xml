@@ -7,7 +7,7 @@
     <version>1.9-SNAPSHOT</version>
     <name>fizzed-maven-parent</name>
     <description>Parent pom for all Fizzed Maven projects</description>
-    <url>http://code.google.com/p/mfz-maven-parent/</url>
+    <url>https://github.com/fizzed/java-maven-parent</url>
 
     <inceptionYear>2012</inceptionYear>
   
@@ -29,10 +29,10 @@
     </licenses>
   
     <scm>
-        <url>http://code.google.com/p/mfz-maven-parent/source/browse/</url>
-        <connection>scm:git:https://code.google.com/p/mfz-maven-parent/</connection>
-      <tag>HEAD</tag>
-  </scm>
+        <url>https://github.com/fizzed/java-maven-parent</url>
+        <connection>scm:git:git@github.com:fizzed/java-maven-parent.git</connection>
+        <tag>master</tag>
+    </scm>
     
     <developers>
         <developer>
