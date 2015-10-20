@@ -4,7 +4,7 @@
     <groupId>com.fizzed</groupId>
     <artifactId>fizzed-maven-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.14-SNAPSHOT</version>
+    <version>1.14</version>
     <name>fizzed-maven-parent</name>
     <description>Parent pom for all Fizzed Maven projects</description>
     <url>https://github.com/fizzed/java-maven-parent</url>
@@ -31,7 +31,7 @@
     <scm>
         <url>https://github.com/fizzed/java-maven-parent</url>
         <connection>scm:git:git@github.com:fizzed/java-maven-parent.git</connection>
-        <tag>master</tag>
+        <tag>v1.14</tag>
     </scm>
     
     <developers>
