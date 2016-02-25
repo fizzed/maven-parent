@@ -2,14 +2,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fizzed</groupId>
-    <artifactId>fizzed-maven-parent</artifactId>
+    <artifactId>maven-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.16-SNAPSHOT</version>
-    <name>fizzed-maven-parent</name>
-    <description>Parent pom for all Fizzed Maven projects</description>
-    <url>https://github.com/fizzed/java-maven-parent</url>
+    <version>2.0.0-SNAPSHOT</version>
+    <description>Parent pom for all Fizzed maven projects</description>
+    <url>https://github.com/fizzed/maven-parent</url>
 
-    <inceptionYear>2015</inceptionYear>
+    <inceptionYear>2016</inceptionYear>
   
     <organization>
         <name>Fizzed, Inc</name>
@@ -17,7 +16,7 @@
     </organization>
 
     <prerequisites>
-        <maven>3.3.3</maven>
+        <maven>3.2.5</maven>
     </prerequisites>
 
     <licenses>
@@ -29,8 +28,8 @@
     </licenses>
   
     <scm>
-        <url>https://github.com/fizzed/java-maven-parent</url>
-        <connection>scm:git:git@github.com:fizzed/java-maven-parent.git</connection>
+        <url>https://github.com/fizzed/maven-parent</url>
+        <connection>scm:git:git@github.com:fizzed/maven-parent.git</connection>
         <tag>master</tag>
     </scm>
     
@@ -56,7 +55,7 @@
     <properties>
         <!-- Maven config -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <copyright.year>2015</copyright.year>
+        <copyright.year>2016</copyright.year>
         <maven.test.skip>false</maven.test.skip>
         <maven.integration.skip>true</maven.integration.skip>
         <license.skip>true</license.skip>
@@ -81,7 +80,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
+                    <version>3.5</version>
                     <configuration>
                         <debug>true</debug>
                         <source>${java.version}</source>
