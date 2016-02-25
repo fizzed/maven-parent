@@ -61,6 +61,7 @@
         <maven.integration.skip>true</maven.integration.skip>
         <license.skip>true</license.skip>
         <maven.enforce.version>3.3.3</maven.enforce.version>
+        <release.sign>true</release.sign>
         
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
@@ -273,6 +274,10 @@
             <activation>
                 <property>
                     <name>performRelease</name>
+                    <value>true</value>
+                </property>
+                <property>
+                    <name>release.sign</name>
                     <value>true</value>
                 </property>
             </activation>
