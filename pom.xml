@@ -61,7 +61,7 @@
         <maven.integration.skip>true</maven.integration.skip>
         <license.skip>true</license.skip>
         <maven.enforce.version>3.3.3</maven.enforce.version>
-        <release.sign>true</release.sign>
+        <release.sign.skip>false</release.sign.skip>
         
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
@@ -294,6 +294,9 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <skip>${release.sign.skip}</skip>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
