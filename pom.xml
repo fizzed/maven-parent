@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fizzed</groupId>
     <artifactId>maven-parent</artifactId>
+    <name>${project.artifactId}</name>
     <packaging>pom</packaging>
     <version>2.0.0-SNAPSHOT</version>
     <description>Parent pom for all Fizzed maven projects</description>
