@@ -5,7 +5,7 @@
     <artifactId>maven-parent</artifactId>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
-    <version>2.4.3-SNAPSHOT</version>
+    <version>2.4.3</version>
     <description>Parent pom for all Fizzed maven projects</description>
     <url>https://github.com/fizzed/maven-parent</url>
 
@@ -31,7 +31,7 @@
     <scm>
         <url>https://github.com/fizzed/maven-parent</url>
         <connection>scm:git:git@github.com:fizzed/maven-parent.git</connection>
-        <tag>master</tag>
+        <tag>v2.4.3</tag>
     </scm>
     
     <developers>
