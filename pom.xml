@@ -223,7 +223,7 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <!-- when do people really version their submods different? -->
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <releaseProfiles>release-sign-artifacts</releaseProfiles>
+                    <releaseProfiles>release</releaseProfiles>
                 </configuration>
             </plugin>
             <plugin>
