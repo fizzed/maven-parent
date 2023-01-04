@@ -62,6 +62,7 @@
         <license.skip>true</license.skip>
         <maven.enforce.version>3.3.3</maven.enforce.version>
         <release.sign.skip>false</release.sign.skip>
+        <maven.deploy.skip>false</maven.deploy.skip>
         
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
@@ -226,17 +227,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>sonatype-nexus-staging</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
@@ -289,8 +279,8 @@
         </profile>
   
         <profile>
-            <!-- only sign artificats during release; not snapshots -->
-            <id>release-sign-artifacts</id>
+            <!-- only sign artifacts during release; not snapshots -->
+            <id>release</id>
             <activation>
                 <property>
                     <name>performRelease</name>
@@ -299,6 +289,18 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.13</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>sonatype-nexus-staging</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <skipNexusStagingDeployMojo>${maven.deploy.skip}</skipNexusStagingDeployMojo>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
