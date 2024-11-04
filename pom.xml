@@ -44,12 +44,12 @@
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
             <name>Sonatype OSS Snapshots Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>${nexus.oss.url}/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>sonatype-nexus-staging</id>
             <name>Sonatype OSS Release Staging Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>${nexus.oss.url}/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
     
@@ -60,10 +60,11 @@
         <maven.test.skip>false</maven.test.skip>
         <maven.integration.skip>true</maven.integration.skip>
         <license.skip>true</license.skip>
+        <javadoc.skip>false</javadoc.skip>
         <maven.enforce.version>3.3.3</maven.enforce.version>
         <release.sign.skip>false</release.sign.skip>
         <maven.deploy.skip>false</maven.deploy.skip>
-        
+        <nexus.oss.url>https://oss.sonatype.org</nexus.oss.url>
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
         <java.version>1.8</java.version>
@@ -213,6 +214,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.4.1</version>
+                <configuration>
+                    <skip>${javadoc.skip}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -305,11 +309,11 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.13</version>
+                        <version>1.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>sonatype-nexus-staging</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <nexusUrl>${nexus.oss.url}/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                             <skipNexusStagingDeployMojo>${maven.deploy.skip}</skipNexusStagingDeployMojo>
                         </configuration>
