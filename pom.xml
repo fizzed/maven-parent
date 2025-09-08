@@ -64,7 +64,7 @@
         <maven.enforce.version>3.3.3</maven.enforce.version>
         <release.sign.skip>false</release.sign.skip>
         <maven.deploy.skip>false</maven.deploy.skip>
-        <nexus.oss.url>https://oss.sonatype.org</nexus.oss.url>
+        <nexus.oss.url>https://ossrh-staging-api.central.sonatype.com</nexus.oss.url>
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
         <java.version>1.8</java.version>
@@ -307,6 +307,17 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.8.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>sonatype-nexus-staging</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
+                    <!--
+                    <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>1.7.0</version>
@@ -318,6 +329,7 @@
                             <skipNexusStagingDeployMojo>${maven.deploy.skip}</skipNexusStagingDeployMojo>
                         </configuration>
                     </plugin>
+                    -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
