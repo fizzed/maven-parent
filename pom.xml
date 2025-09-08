@@ -312,24 +312,10 @@
                         <version>0.8.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <publishingServerId>sonatype-nexus-staging</publishingServerId>
+                            <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
                         </configuration>
                     </plugin>
-                    <!--
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.7.0</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>sonatype-nexus-staging</serverId>
-                            <nexusUrl>${nexus.oss.url}/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                            <skipNexusStagingDeployMojo>${maven.deploy.skip}</skipNexusStagingDeployMojo>
-                        </configuration>
-                    </plugin>
-                    -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
