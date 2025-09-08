@@ -65,6 +65,7 @@
         <release.sign.skip>false</release.sign.skip>
         <maven.deploy.skip>false</maven.deploy.skip>
         <nexus.oss.url>https://ossrh-staging-api.central.sonatype.com</nexus.oss.url>
+        <centralDeploymentName>${project.groupId}.${project.artifactId}</centralDeploymentName>
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
         <java.version>1.8</java.version>
@@ -314,6 +315,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <deploymentName>${centralDeploymentName}</deploymentName>
                         </configuration>
                     </plugin>
                     <plugin>
