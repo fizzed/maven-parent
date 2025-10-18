@@ -88,14 +88,6 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>netbeans-freeform-maven-plugin</artifactId>
-                    <version>2.0</version>
-                    <configuration>
-                        <additionalGoals>source:jar</additionalGoals>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-eclipse-plugin</artifactId>
                     <version>2.10</version>
@@ -143,7 +135,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -250,6 +242,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.1</version>
+                <!-- on maven >= 3.9.8 this causes multi-module POM modules to be installed as jars! -->
+                <!--
                 <executions>
                     <execution>
                         <id>default-jar</id>
@@ -258,6 +252,8 @@
                         </goals>
                     </execution>
                 </executions>
+                -->
+                <!--
                 <configuration>
                     <archive>
                         <manifestEntries>
@@ -272,6 +268,7 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+                -->
             </plugin>
         </plugins>
     </build>
