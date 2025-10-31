@@ -42,9 +42,8 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype OSS Snapshots Repository</name>
-            <url>${nexus.oss.url}/content/repositories/snapshots</url>
+            <id>fizzed</id>
+            <url>https://repos.fizzed.com/repository/maven-snapshots</url>
         </snapshotRepository>
         <repository>
             <id>sonatype-nexus-staging</id>
