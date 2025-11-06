@@ -48,7 +48,7 @@
         <repository>
             <id>sonatype-nexus-staging</id>
             <name>Sonatype OSS Release Staging Repository</name>
-            <url>${nexus.oss.url}/service/local/staging/deploy/maven2</url>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
     
@@ -63,8 +63,8 @@
         <maven.enforce.version>3.3.3</maven.enforce.version>
         <release.sign.skip>false</release.sign.skip>
         <maven.deploy.skip>false</maven.deploy.skip>
-        <nexus.oss.url>https://ossrh-staging-api.central.sonatype.com</nexus.oss.url>
-        <centralDeploymentName>${project.groupId}.${project.artifactId}</centralDeploymentName>
+        <central.auto.publish>true</central.auto.publish>
+        <central.deployment.name>${project.groupId}.${project.artifactId}</central.deployment.name>
         <!-- 3rd Party library dependency versions -->
         <main.java.package />
         <java.version>1.8</java.version>
@@ -77,7 +77,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.13.0</version>
+                    <version>3.14.1</version>
                     <configuration>
                         <debug>true</debug>
                         <source>${java.version}</source>
@@ -99,12 +99,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.2</version>
+                    <version>3.5.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.5.4</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -121,20 +121,20 @@
                         <goals>
                             <goal>create</goal>
                         </goals>
+                        <configuration>
+                            <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+                            <shortRevisionLength>8</shortRevisionLength>
+                            <doCheck>false</doCheck>
+                            <doUpdate>false</doUpdate>
+                            <timestampFormat>{0,date,yyyyMMdd}</timestampFormat>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
-                    <shortRevisionLength>8</shortRevisionLength>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                    <timestampFormat>{0,date,yyyyMMdd}</timestampFormat>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.2</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -153,34 +153,25 @@
             </plugin>
             <plugin>
                 <groupId>com.fizzed</groupId>
-                <artifactId>fizzed-versionizer-maven-plugin</artifactId>
-                <version>1.0.6</version>
+                <artifactId>version-maven-plugin</artifactId>
+                <version>2.0.0</version>
                 <executions>
                     <execution>
                         <id>generate-version-class</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <javaPackage>${main.java.package}</javaPackage>
+                            <versionCommit>${buildNumber}</versionCommit>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <javaPackage>${main.java.package}</javaPackage>
-                    <versionCommit>${buildNumber}</versionCommit>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.0.0</version>
-                <configuration>
-                    <verbose>false</verbose>
-                    <addSvnKeyWords>false</addSvnKeyWords>
-                    <licenseName>apache_v2</licenseName>
-                    <skipUpdateLicense>${license.skip}</skipUpdateLicense>
-                    <excludes>
-                        <exclude>**/Version.java</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>apply-license-header</id>
@@ -188,6 +179,15 @@
                         <goals>
                             <goal>update-file-header</goal>
                         </goals>
+                        <configuration>
+                            <verbose>false</verbose>
+                            <addSvnKeyWords>false</addSvnKeyWords>
+                            <licenseName>apache_v2</licenseName>
+                            <skipUpdateLicense>${license.skip}</skipUpdateLicense>
+                            <excludes>
+                                <exclude>**/Version.java</exclude>
+                            </excludes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -207,7 +207,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.12.0</version>
                 <configuration>
                     <skip>${javadoc.skip}</skip>
                 </configuration>
@@ -223,12 +223,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.1.4</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.1</version>
                 <configuration>
                     <!-- use @ for propert to be interpolated -->
                     <tagNameFormat>v@{project.version}</tagNameFormat>
@@ -240,7 +240,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.4.2</version>
                 <!-- on maven >= 3.9.8 this causes multi-module POM modules to be installed as jars! -->
                 <!--
                 <executions>
@@ -283,7 +283,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.4.1</version>
+                        <version>3.12.0</version>
                         <configuration>
                             <source>8</source>
                             <detectJavaApiLink>false</detectJavaApiLink>
@@ -308,12 +308,12 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.8.0</version>
+                        <version>0.9.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
-                            <autoPublish>true</autoPublish>
-                            <deploymentName>${centralDeploymentName}</deploymentName>
+                            <autoPublish>${central.auto.publish}</autoPublish>
+                            <deploymentName>${central.deployment.name}</deploymentName>
                             <skipPublishing>${maven.deploy.skip}</skipPublishing>
                         </configuration>
                     </plugin>
