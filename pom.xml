@@ -314,6 +314,7 @@
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
                             <deploymentName>${centralDeploymentName}</deploymentName>
+                            <skipPublishing>${maven.deploy.skip}</skipPublishing>
                         </configuration>
                     </plugin>
                     <plugin>
